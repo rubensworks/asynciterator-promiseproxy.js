@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/asynciterator": "^1.1.0",
     "@types/jest": "^21.1.8",
+    "coveralls": "^3.0.0",
     "jest": "^21.2.1",
     "pre-commit": "^1.2.2",
     "ts-jest": "^21.2.3",
@@ -52,6 +53,7 @@
   "scripts": {
     "test": "jest ${1}",
     "test-watch": "jest ${1} --watch",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "lint": "tslint index.ts lib/**/*.ts test/**/*.ts --exclude '**/*.d.ts'",
     "build": "tsc",
     "validate": "npm ls",
