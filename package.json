@@ -16,6 +16,12 @@
     "url": "https://github.com/rubensworks/asynciterator-promiseproxy/issues"
   },
   "homepage": "https://github.com/rubensworks/asynciterator-promiseproxy#readme",
+  "files": [
+    "lib/**/*.d.ts",
+    "lib/**/*.js",
+    "index.d.ts",
+    "index.js"
+  ],
   "dependencies": {
     "asynciterator": "^1.1.0"
   },
