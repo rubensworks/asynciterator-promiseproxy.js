@@ -13,9 +13,9 @@ or if you want to create this source lazilly.
 ## Usage
 
 ```javascript
-const ProxyIterator = require('asynciterator-promiseproxy');
+const PromiseProxyIterator = require('asynciterator-promiseproxy').PromiseProxyIterator;
 
-let it = new ProxyIterator(() -> makeIterator());
+let it = new PromiseProxyIterator(() -> makeIterator());
 it.on('data', console.log);
 
 async function makeIterator() {
