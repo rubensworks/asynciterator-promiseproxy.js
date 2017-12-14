@@ -15,7 +15,7 @@ export class PromiseProxyIterator<T> extends TransformIterator<T, T> {
     this.sourceGetter = sourceGetter;
   }
 
-  protected _begin(done: () => void) {
+  public _begin(done: () => void) {
     this.sourceGetter().then((source: AsyncIterator<T>) => {
       this.source = source;
       done();
