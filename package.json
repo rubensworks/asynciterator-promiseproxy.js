@@ -13,9 +13,9 @@
   "author": "Ruben Taelman <ruben.taelman@ugent.be>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rubensworks/asynciterator-promiseproxy/issues"
+    "url": "https://github.com/rubensworks/asynciterator-promiseproxy.js/issues"
   },
-  "homepage": "https://github.com/rubensworks/asynciterator-promiseproxy#readme",
+  "homepage": "https://github.com/rubensworks/asynciterator-promiseproxy.js#readme",
   "files": [
     "lib/**/*.d.ts",
     "lib/**/*.js",
