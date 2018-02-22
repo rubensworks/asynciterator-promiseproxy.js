@@ -41,6 +41,7 @@ describe('PromiseProxyIterator', () => {
       return new Promise((resolve, reject) => {
         iterator = new PromiseProxyIterator(() => Promise.reject(new Error('This should be caught')));
         iterator.on('error', () => resolve());
+        iterator.on('data', () => { return; });
       });
     });
   });

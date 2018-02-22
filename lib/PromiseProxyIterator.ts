@@ -1,4 +1,4 @@
-import {AsyncIterator, TransformIterator} from "asynciterator";
+import {AsyncIterator, TransformIterator, TransformIteratorOptions} from "asynciterator";
 
 /**
  * A {@link TransformIterator} that allows the source to be set through a lazy Promise.
@@ -10,16 +10,20 @@ export class PromiseProxyIterator<T> extends TransformIterator<T, T> {
 
   protected readonly sourceGetter: () => Promise<AsyncIterator<T>>;
 
-  constructor(sourceGetter: () => Promise<AsyncIterator<T>>) {
-    super();
+  constructor(sourceGetter: () => Promise<AsyncIterator<T>>, options?: TransformIteratorOptions<T>) {
+    super(options || { autoStart: false });
     this.sourceGetter = sourceGetter;
   }
 
-  public _begin(done: () => void) {
-    this.sourceGetter().then((source: AsyncIterator<T>) => {
-      this.source = source;
-      done();
-    }).catch((error) => this.emit('error', error));
+  public _read(count: number, done: () => void): void {
+    if (!this.source) {
+      this.sourceGetter().then((source: AsyncIterator<T>) => {
+        this.source = source;
+        super._read(count, done);
+      }).catch((error) => this.emit('error', error));
+    } else {
+      super._read(count, done);
+    }
   }
 
 }
