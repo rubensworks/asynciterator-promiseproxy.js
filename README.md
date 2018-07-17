@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/rubensworks/asynciterator-promiseproxy.js.svg?branch=master)](https://travis-ci.org/rubensworks/asynciterator-promiseproxy.js)
 [![Coverage Status](https://coveralls.io/repos/github/rubensworks/asynciterator-promiseproxy.js/badge.svg?branch=master)](https://coveralls.io/github/rubensworks/asynciterator-promiseproxy.js?branch=master)
-[![npm version](https://badge.fury.io/js/asynciterator-promiseproxy.svg)](https://www.npmjs.com/package/asynciterator-promiseproxy)
+[![npm version](https://badge.fury.io/js/asynciterator-promiseproxy.svg)](https://www.npmjs.com/package/asynciterator-promiseproxy) [![Greenkeeper badge](https://badges.greenkeeper.io/rubensworks/asynciterator-promiseproxy.js.svg)](https://greenkeeper.io/)
 
 An AsyncIterator proxy that allows its source to be set via a promise.
 
