@@ -15,10 +15,16 @@ export class PromiseProxyIterator<T> extends TransformIterator<T, T> {
     this.sourceGetter = sourceGetter;
   }
 
+  public async loadSource(): Promise<AsyncIterator<T>> {
+    if (!this.source) {
+      this.source = await this.sourceGetter();
+    }
+    return this.source;
+  }
+
   public _read(count: number, done: () => void): void {
     if (!this.source) {
-      this.sourceGetter().then((source: AsyncIterator<T>) => {
-        this.source = source;
+      this.loadSource().then((source: AsyncIterator<T>) => {
         super._read(count, done);
       }).catch((error) => this.emit('error', error));
     } else {
