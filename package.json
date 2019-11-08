@@ -1,6 +1,6 @@
 {
   "name": "asynciterator-promiseproxy",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "An AsyncIterator proxy that allows its source to be set via a promise.",
   "main": "index.js",
   "typings": "index",
