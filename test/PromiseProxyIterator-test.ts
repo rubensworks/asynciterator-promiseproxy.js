@@ -15,18 +15,30 @@ describe('PromiseProxyIterator', () => {
 
   describe('A PromiseProxyIterator instance', () => {
     let iterator: PromiseProxyIterator<number>;
-    let called: boolean;
+    let called: number;
 
     beforeEach(() => {
-      called = false;
+      called = 0;
       iterator = new PromiseProxyIterator(() => new Promise((resolve, reject) => {
-        called = true;
+        ++called;
         resolve(AsyncIterator.range(0, 10));
       }));
     });
 
     it('should not create the source before the proxy is called', () => {
       return expect(called).toBeFalsy();
+    });
+
+    it('should create the source when the loadSource function is called', async () => {
+      await iterator.loadSource();
+      expect(called).toBeTruthy();
+    });
+
+    it('should return the source when calling loadSource for the second time', async () => {
+      const source1 = await iterator.loadSource();
+      const source2 = await iterator.loadSource();
+      expect(called).toBe(1);
+      expect(source1).toBe(source2);
     });
 
     it('should create the source when the proxy is called', () => {
