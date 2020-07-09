@@ -1,3 +1,7 @@
+# DEPRECATED
+
+As of AsyncIterator 3.x.x, this functionality exists in `TransformIterator`, where `autoStart` can be set to `false`.
+
 # Async Promise Proxy Iterator
 
 [![Build Status](https://travis-ci.org/rubensworks/asynciterator-promiseproxy.js.svg?branch=master)](https://travis-ci.org/rubensworks/asynciterator-promiseproxy.js)
